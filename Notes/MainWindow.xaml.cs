@@ -23,15 +23,17 @@ namespace WpfApp2
     public partial class MainWindow : Window
     {
         public string[] notes = new string[100];
+        private int note_id;
+
         public MainWindow()
         {
             GetNotes();
+
             InitializeComponent();
-            foreach (string note in notes)
-            {
-                NoteList.Items.Add(note);
-            }
+
+            ChangeNoteList();
         }
+
         private void GetNotes()
         {
             try
@@ -39,17 +41,51 @@ namespace WpfApp2
                 StreamReader sr = new StreamReader("../../../notes");
                 string line = sr.ReadLine();
                 int i = 0;
+
                 while (line != null)
                 {
                     notes[i++] = line;
                     line = sr.ReadLine();
                 }
+
+                note_id = i;
+                sr.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
+        }
+
+        private void SetNotes()
+        {
+            StreamWriter sw = new StreamWriter("../../../notes");
+            foreach (string note in notes)
+            {
+                sw.WriteLine(note);
+            }
+
+            sw.Close();
+        }
+
+        private void ChangeNoteList()
+        {
+            NoteList.Items.Clear();
+            foreach (string note in notes)
+            {
+                NoteList.Items.Add(note);
+            }
+        }
+
+        private void BtnNote_OnClick(object sender, RoutedEventArgs e)
+        {
+            notes[note_id] = NoteText.Text;
+            note_id++;
+
+            ChangeNoteList();
+            SetNotes();
             
+            NoteText.Text = "Введите текст заметки";
         }
     }
 }

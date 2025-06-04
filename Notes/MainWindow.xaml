@@ -5,9 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="420" Width="310">
+        Title="MainWindow" Height="420" Width="380">
     <Grid>
-        <TextBox VerticalAlignment="Top" Margin="0 10 0 0" Height="50" FontSize="20">Заметка</TextBox>
-        <ListBox x:Name="NoteList" Margin="0 60 0 0" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <TextBox 
+                Height="50" Width="300" FontSize="20"
+                x:Name="NoteText"
+                Text="Введите заметку"/>
+            <Button x:Name="BtnNote" Click="BtnNote_OnClick" DockPanel.Dock="Right" Width="70" Content="Сохранить"/>
+        </DockPanel>
+        <ListBox Grid.Row="1" x:Name="NoteList"/>
     </Grid>
 </Window>
