@@ -9,11 +9,12 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace Calculator
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -53,6 +54,39 @@ namespace WpfApp1
                     n2 = "";
                 }
             }
+        }
+
+        private void with_animation(Button b, int p)
+        {
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.To = p;
+            animation.Duration = TimeSpan.FromSeconds(0.5);
+            b.BeginAnimation(Button.WidthProperty, animation);
+            
+        }
+        
+        private void height_animation(Button b, int p)
+        {
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.To = p;
+            animation.Duration = TimeSpan.FromSeconds(0.5);
+            b.BeginAnimation(Button.HeightProperty, animation);
+        }
+
+        private void decrease_animation(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            
+            height_animation(b, 50);
+            with_animation(b, 50);
+        }
+        
+        private void increase_animation(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            
+            height_animation(b, 60);
+            with_animation(b, 60);
         }
 
         private void operated(object sender, RoutedEventArgs e)
