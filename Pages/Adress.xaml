@@ -10,7 +10,7 @@
         <TextBlock Margin="50" Text="Адрес" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <TextBox Margin="100" Text="Город" FontSize="20" VerticalAlignment="Top"/>
         <TextBox Margin="100 140" Text="Улица" FontSize="20" VerticalAlignment="Top"/>
-        <TextBox Margin="100" Text="Дом" FontSize="20" VerticalAlignment="Top"/>
-        <TextBox Margin="100 140" Text="Квартира" FontSize="20" VerticalAlignment="Top"/>
+        <TextBox Margin="100 180" Text="Дом" FontSize="20" VerticalAlignment="Top"/>
+        <TextBox Margin="100 20" Text="Квартира" FontSize="20" VerticalAlignment="Center"/>
     </Grid>
 </Page>
