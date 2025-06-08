@@ -5,28 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:notebook"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{DynamicResource m_Title}" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Menu Height="30" Grid.Row="0">
-            <MenuItem Height="30" Header="Файл">
-                <MenuItem Header="Открыть" Click="OpenFile" />
-                <MenuItem Header="Сохранить" Click="Savefile"/>
+            <MenuItem Height="30" Header="{DynamicResource m_File}">
+                <MenuItem Header="{DynamicResource m_Open}" Click="OpenFile" />
+                <MenuItem Header="{DynamicResource m_Save}" Click="Savefile" />
             </MenuItem>
-            <MenuItem Height="30" Header="Редактировать">
-                <MenuItem Command="SelectAll" CommandTarget="{Binding ElementName=txtNotes}" Header="Выделить всё" />
-                <MenuItem Command="Cut" CommandTarget="{Binding ElementName=txtNotes}" Header="Вырезать" />
-                <MenuItem Command="Copy" CommandTarget="{Binding ElementName=txtNotes}" Header="Копировать" />
-                <MenuItem Command="Paste" CommandTarget="{Binding ElementName=txtNotes}" Header="Вставить" />
-                <MenuItem Command="Delete" CommandTarget="{Binding ElementName=txtNotes}" Header="Удалить" />
+            <MenuItem Height="30" Header="{DynamicResource m_Edit}">
+                <MenuItem Command="SelectAll" CommandTarget="{Binding ElementName=txtNotes}"
+                          Header="{DynamicResource m_Select_all}" />
+                <MenuItem Command="Cut" CommandTarget="{Binding ElementName=txtNotes}" Header="{DynamicResource m_Cut}" />
+                <MenuItem Command="Copy" CommandTarget="{Binding ElementName=txtNotes}" Header="{DynamicResource m_Copy}" />
+                <MenuItem Command="Paste" CommandTarget="{Binding ElementName=txtNotes}" Header="{DynamicResource m_Past}" />
+                <MenuItem Command="Delete" CommandTarget="{Binding ElementName=txtNotes}" Header="{DynamicResource m_Delete}" />
             </MenuItem>
+            <MenuItem Height="30" x:Name="MenuLanguage" Header="{DynamicResource m_menu_Language}"></MenuItem>
         </Menu>
         <TextBox Grid.Row="1" Name="txtNotes" TextWrapping="Wrap" Margin="10" />
-        
+
     </Grid>
-    
-        
+
+
 </Window>

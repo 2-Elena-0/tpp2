@@ -19,3 +19,6 @@ C:\Users\User\RiderProjects\WpfApp2\notebook\obj\Debug\net6.0-windows\refint\not
 C:\Users\User\RiderProjects\WpfApp2\notebook\obj\Debug\net6.0-windows\notebook.pdb
 C:\Users\User\RiderProjects\WpfApp2\notebook\obj\Debug\net6.0-windows\notebook.genruntimeconfig.cache
 C:\Users\User\RiderProjects\WpfApp2\notebook\obj\Debug\net6.0-windows\ref\notebook.dll
+C:\Users\User\RiderProjects\WpfApp2\notebook\obj\Debug\net6.0-windows\App.baml
+C:\Users\User\RiderProjects\WpfApp2\notebook\obj\Debug\net6.0-windows\Resource\lang.baml
+C:\Users\User\RiderProjects\WpfApp2\notebook\obj\Debug\net6.0-windows\Resource\lang.en-US.baml
