@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace Pages
 {
@@ -23,21 +10,24 @@ namespace Pages
         public MainWindow()
         {
             InitializeComponent();
+            Personal.Click += Pers;
+            Contact.Click += Cont;
+            Adres.Click += Adr;
         }
 
-        private void GoToPersonalData(object sender, RoutedEventArgs e)
+        private void Pers(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Personal_Data());
+            MainFrame.Navigate(new Person());
         }
 
-        private void GoToContactData(object sender, RoutedEventArgs e)
+        private void Cont(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Contact_Data());
+            MainFrame.Navigate(new Contactor());
         }
 
-        private void GoToAdressData(object sender, RoutedEventArgs e)
+        private void Adr(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Adress());
+            MainFrame.Navigate(new Addr());
         }
     }
 }

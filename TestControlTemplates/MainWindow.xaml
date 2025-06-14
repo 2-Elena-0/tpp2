@@ -8,27 +8,60 @@
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
         <ControlTemplate x:Key="MyTemplate" TargetType="Button">
-            <Border x:Name="buttonBorder" CornerRadius="40" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="2"
-                    Background="RoyalBlue" Height="80" Width="250">
-                <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Foreground="Azure" FontSize="50" Content="Hello" />
+            <Border x:Name="MyBtn" BorderThickness="2" Background="Navy" Height="200" Width="200"
+                    HorizontalAlignment="Left">
+                <ContentControl x:Name="ContName" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Foreground="Azure" FontSize="50" Content="Smile" />
             </Border>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="true">
                     <Setter Property="FontWeight" Value="Bold" />
                 </Trigger>
                 <Trigger Property="IsPressed" Value="true">
-                    <Setter TargetName="buttonBorder" Property="Background" Value="Azure" />
-                    <Setter TargetName="buttonBorder" Property="BorderBrush" Value="DarkBlue" />
+                    <Setter TargetName="MyBtn" Property="Background" Value="Wheat" />
+                    <Setter TargetName="MyBtn" Property="BorderBrush" Value="Purple" />
+                    <Setter TargetName="ContName" Property="Content" Value="Please" />
+                    <Setter TargetName="ContName" Property="Foreground" Value="Black" />
+                    <Setter TargetName="ContName" Property="FontWeight" Value="Normal" />
                 </Trigger>
-                <Trigger Property="IsEnabled" Value="false">
-                    <Setter Property="Foreground" Value="Gray"/>
-                    <Setter TargetName="buttonBorder" Property="Background" Value="LightGray"/>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="SomeName" TargetType="Button">
+            <Border x:Name="MyBtn2" BorderBrush="Chartreuse" BorderThickness="5" Background="Green" Height="200" Width="200"
+                    HorizontalAlignment="Right">
+                <ContentControl x:Name="ContName2" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Foreground="Azure" FontSize="50" Content="Smile" />
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="FontWeight" Value="Thin" />
                 </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter TargetName="ContName2" Property="Content" Value="No((" />
+                    <Setter TargetName="ContName2" Property="Foreground" Value="Cornsilk" />
+                    <Setter TargetName="ContName2" Property="FontWeight" Value="Normal" />
+                    <Setter TargetName="MyBtn2" Property="Background" Value="Plum" />
+                    <Setter TargetName="MyBtn2" Property="BorderThickness" Value="0" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="MyTemplateText" TargetType="TextBox">
+            <TextBlock x:Name="MyText" Text="What?" FontSize="40" HorizontalAlignment="Center" Background="Brown"
+                       Foreground="Coral" />
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" TargetName="MyText" Value="Chartreuse" />
+                    <Setter Property="Foreground" TargetName="MyText" Value="Black" />
+                    <Setter Property="Text" TargetName="MyText" Value="Is it... " />
+                    <Setter Property="FontWeight" Value="Light" />
+                </Trigger>
+
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
     <Grid>
-        <Button Template="{StaticResource MyTemplate}" BorderBrush="Aqua"/>
+        <TextBox Template="{StaticResource MyTemplateText}" />
+        <Button Template="{StaticResource MyTemplate}" BorderBrush="Aqua" />
+        <Button Template="{StaticResource SomeName}" />
     </Grid>
 </Window>

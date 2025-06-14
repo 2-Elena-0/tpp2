@@ -2,9 +2,9 @@ using System.Windows.Controls;
 
 namespace Pages;
 
-public partial class Contact_Data : Page
+public partial class Contactor : Page
 {
-    public Contact_Data()
+    public Contactor()
     {
         InitializeComponent();
     }

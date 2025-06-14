@@ -23,6 +23,8 @@ namespace notebook
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string fileName;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -86,7 +88,8 @@ namespace notebook
             {
                 try
                 {
-                    StreamReader sr = new StreamReader(ofd.FileName);
+                    fileName = ofd.FileName;
+                    StreamReader sr = new StreamReader(fileName);
                     txtNotes.Text = sr.ReadToEnd();
                     sr.Close();
                 }
@@ -99,7 +102,21 @@ namespace notebook
 
         public void Savefile(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
+            try
+            {
+                StreamWriter sw = new StreamWriter(fileName);
+                sw.Write(txtNotes.Text);
+                sw.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void SavefileAs(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog ofd = new SaveFileDialog();
             if (ofd.ShowDialog() == true)
             {
                 try

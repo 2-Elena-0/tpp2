@@ -1,0 +1,40 @@
+﻿<Window x:Class="Notes2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notes2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400">
+    <Window.CommandBindings>
+        <CommandBinding Command="local:WindowCommands.Exit" Executed="Exit_Executed"/>
+        <CommandBinding Command="local:WindowCommands.Open" Executed="OpenFile"/>
+        <CommandBinding Command="local:WindowCommands.Save" Executed="Savefile"/>
+        <CommandBinding Command="local:WindowCommands.SaveAs" Executed="SavefileAs"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem FontSize="20" Header="{DynamicResource File}">
+                <MenuItem Command="local:WindowCommands.Open" Header="{DynamicResource Open}" Click="OpenFile" />
+                <MenuItem Command="local:WindowCommands.Save" Header="{DynamicResource Save}" Click="Savefile" />
+                <MenuItem Command="local:WindowCommands.SaveAs" Header="{DynamicResource SaveAs}" Click="SavefileAs" />
+            </MenuItem>
+            <MenuItem FontSize="20" Header="{DynamicResource Tools}">
+                <MenuItem Command="SelectAll" CommandTarget="{Binding ElementName=fileText}"
+                          Header="{DynamicResource SelectAll}" />
+                <MenuItem Command="Cut" CommandTarget="{Binding ElementName=fileText}" Header="{DynamicResource Cut}" />
+                <MenuItem Command="Copy" CommandTarget="{Binding ElementName=fileText}" Header="{DynamicResource Copy}" />
+                <MenuItem Command="Paste" CommandTarget="{Binding ElementName=fileText}" Header="{DynamicResource Past}" />
+                <MenuItem Command="Delete" CommandTarget="{Binding ElementName=fileText}" Header="{DynamicResource Delete}" />
+            </MenuItem>
+            <MenuItem FontSize="20" x:Name="Languages" Header="{DynamicResource Languages}" />
+            <MenuItem FontSize="20" Header="{DynamicResource Exit}" Command="local:WindowCommands.Exit"  />
+        </Menu>
+        <TextBox Grid.Row="1" x:Name="fileText" TextWrapping="Wrap" Margin="10" />
+
+    </Grid>
+</Window>

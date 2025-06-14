@@ -6,26 +6,14 @@
         xmlns:local="clr-namespace:Pages"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <!-- <Grid> -->
-    <!--      -->
-    <!--     <Grid.RowDefinitions> -->
-    <!--         <RowDefinition Height="Auto" /> -->
-    <!--         <RowDefinition Height="Auto" /> -->
-    <!--     </Grid.RowDefinitions> -->
-    <!--     <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame> -->
-    <!--     <Menu Grid.Row="0"> -->
-    <!--         <MenuItem FontSize="20" Header="Личные данные" Click="GoToPersonalData" /> -->
-    <!--         <MenuItem FontSize="20" Header="Контактные данные" Click="GoToContactData"/> -->
-    <!--         <MenuItem FontSize="20" Header="Адрес" Click="GoToAdressData"/> -->
-    <!--     </Menu> -->
-    <!--     <TextBlock Grid.Row="1" Margin="10" Text="Заполните поля" HorizontalAlignment="Center" FontSize="50" /> -->
-    <!-- </Grid> -->
     <Grid>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
-        <Menu Height="30" VerticalAlignment="Top">
-            <MenuItem Click="GoToPersonalData" FontSize="20" Header="Личные данные данные"/> 
-            <MenuItem Click="GoToContactData" FontSize="20" Header="Контактные данные"/> 
-            <MenuItem Click="GoToAdressData" FontSize="20" Header="Адрес" />
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
+        <Menu FontSize="20" VerticalAlignment="Top">
+            <MenuItem x:Name="Personal" Header="Личные данные" />
+            <MenuItem x:Name="Contact" Header="Контактные данные" />
+            <MenuItem x:Name="Adres" Header="Адрес" />
         </Menu>
+        <TextBlock Margin="50" VerticalAlignment="Top" HorizontalAlignment="Center" Height="50" FontSize="30"
+                   Text="Заполните все поля" />
     </Grid>
 </Window>

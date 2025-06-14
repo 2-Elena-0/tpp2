@@ -2,9 +2,9 @@ using System.Windows.Controls;
 
 namespace Pages;
 
-public partial class Personal_Data : Page
+public partial class Person : Page
 {
-    public Personal_Data()
+    public Person()
     {
         InitializeComponent();
     }
